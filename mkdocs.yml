@@ -1,0 +1,7 @@
+site_name: EmptyFlow.SciterAPI
+site_author: 'Roman Vladimirov'
+docs_dir: docs/
+repo_name: 'EmptyFlow/SciterAPI'
+repo_url: 'https://github.com/EmptyFlow/SciterAPI'
+nav:
+  - Home: index.md
