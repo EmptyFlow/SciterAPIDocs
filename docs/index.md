@@ -11,9 +11,12 @@ The EmptyFlow.SciterAPI library contains bindings for the Sciter dynamic library
 
 ## Getting started
 
-* Creating project
-* Load HTML and show window
-* Adding Event handlers
-* Register file protocols
-* Find element and get/set tag's text/html
-* Create Value
+* [Creating project](creatingproject.md)
+* [Load HTML and show window](loadingandrun.md)
+
+## Using additional features
+
+* [Adding Event handlers](eventhandlers.md)
+* [Register file protocols](fileprotocols.md)
+* [Find element and get/set tag's text/html](loadingandrun.md)
+* [Create value](createvalue.md)
