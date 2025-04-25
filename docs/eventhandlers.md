@@ -29,19 +29,29 @@ Occurs when a JavaScript xcall(...) call on a element or window.
 
 ### MethodCall
 
+Occurs when some of standart element methods called.
+
 ### ExchangeParameters
 
 ### DataArrived
 
 ### DrawEvent
 
+In this event handler you can write custom logic for drawing.
+
 ### GestureEvent
 
+Occurs when some of gesture happened.
+
 ### SizeEvent
+
+Occurs after size of element changed.
 
 ### TimerEvent
 
 ### ScrollEvent
+
+Occurs after scrolling.
 
 ### FocusEvent
 
@@ -79,4 +89,35 @@ public class MyWindowEventHandler : WindowEventHandler {
 
 ## Add EventHandler for element from CSS property
 
+First you need to add a factory to create you custom `SciterEventHandler`:
+
+```csharp
+host.Callbacks.AddAttachBehaviourFactory ( "mybehaviour", ( element ) => new MyCustomEventHandler ( element, host ) );
+```
+
+After it you can attach registered custom SciterEventHandler in CSS class or tag style:
+```css
+// in CSS
+
+.customClass {
+   behavior: 'mybehaviour'
+}
+
+<div class="customClass">
+</div>
+```
+
+```html
+<div style="behavior: 'mybehaviour'">
+</div>
+```
+
 ## Add EventHandler for element via SciterAPI
+
+```csharp
+// create event handler
+var eventHandler = new SciterEventHandler();
+
+// attach eventHandler with element
+host.AddEventHandler(eventHandler);
+```
