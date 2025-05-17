@@ -57,9 +57,11 @@ Occurs after scrolling.
 
 ### KeyboardEvent
 
-### MouseEvent
+Occurs after keyboard interactive on element.
 
 ### MouseEvent
+
+Occurs after mouse interactive on element.
 
 ## Attach EventHandler for window
 
