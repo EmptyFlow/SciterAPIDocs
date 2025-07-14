@@ -15,6 +15,10 @@ You can check below which methods can be overridden:
 
 Occurs immediately after EventHandler was registered.
 
+### BeforeRegisterEvent
+
+Occurs before registration event handler and you can return which types events do you want to handlee (via enum EventBehaviourGroups).
+
 ### HandleInitializationEvent
 
 Occurs when EventHandler was attached/deattached to element/window.
@@ -35,6 +39,8 @@ Occurs when some of standart element methods called.
 
 ### DataArrived
 
+Happened after http request data is arrived.
+
 ### DrawEvent
 
 In this event handler you can write custom logic for drawing.
@@ -48,6 +54,8 @@ Occurs when some of gesture happened.
 Occurs after size of element changed.
 
 ### TimerEvent
+
+Occurs after size of element changed.
 
 ### ScrollEvent
 
@@ -122,4 +130,18 @@ var eventHandler = new SciterEventHandler();
 
 // attach eventHandler with element
 host.AddEventHandler(eventHandler);
+```
+
+## Define and access with unique value
+
+You can define unique value via override method `GetUnique()`:
+```csharp
+public override string GetUnique () => "myglobalname";
+```
+
+after it you can get this event handler via:
+
+```csharp
+var handlerPointer = Host.GetEventHandlerByUnique ( "myglobalname" );
+var handler = (handlerPointer as MyEventHandler);
 ```
