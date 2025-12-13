@@ -19,9 +19,7 @@ dotnet add test.csproj package EmptyFlow.SciterAPI
 ```csharp
 using EmptyFlow.SciterAPI;
 
-SciterLoader.Initialize ( Environment.CurrentDirectory ); // you need specify folder where will be located sciter library file (sciter.dll/libsciter.so/libsciter.dylib)
-var host = new SciterAPIHost (); // create host
-host.LoadAPI (); // load sciter API and make adjustments for further work
+var host = new SciterAPIHost (Environment.CurrentDirectory); // you need specify folder where will be located sciter library file (sciter.dll/libsciter.so/libsciter.dylib)
 host.CreateMainWindow ( 300, 300, enableDebug: true, enableFeature: true ); // create main window and enable debug mode and sciter features (like access to system in JavaScript)
 host.LoadFile ( "file://path/my.html" ); // load HTML page, path specified in first argument
 host.Process (); // start sciter and run main loop for show main window
