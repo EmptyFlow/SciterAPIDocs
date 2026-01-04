@@ -1,5 +1,3 @@
-## JavaScript Interop
-
 Usually, to interact with JavaScript, we need to either execute some code from C# on the JavaScript side or get value(s) from the JavaScript side in C#.
 
 ### How to execute JavaScript code from C#?
@@ -47,17 +45,17 @@ public class MyHandler : ElementEventHandler {
     public MyHandler ( nint element, SciterAPIHost host ) : base ( element, host ) {}
 
     public override (SciterValue? value, bool handled) ScriptMethodCall ( string name, IEnumerable<SciterValue> arguments ) {
-	// only if called csharpmethod
+        // only if called csharpmethod
         if ( name == "csharpmethod" ) {
-                // read first string parameter
-		var stringParameter = arguments.ElementAt ( 0 );
-		var stringValue = Host.GetValueString(ref stringParameter);
-                // read second number parameter
-		var intParameter = arguments.ElementAt ( 1 );
-		var intValue = Host.GetValueInt32(ref intParameter);
-                // create result value
-		return (Host.CreateValue(stringValue + intValue), true);
-	}
+             // read first string parameter
+             var stringParameter = arguments.ElementAt ( 0 );
+             var stringValue = Host.GetValueString(ref stringParameter);
+             // read second number parameter
+             var intParameter = arguments.ElementAt ( 1 );
+             var intValue = Host.GetValueInt32(ref intParameter);
+             // create result value
+             return (Host.CreateValue(stringValue + intValue), true);
+        }
 
         return (null, false);
     }
