@@ -11,3 +11,4 @@ nav:
   - Register file protocols: fileprotocols.md
   - Find element and change content: fileelement.md
   - Using Values: createvalue.md
+  - JavaScript Interop: jsinterop.md
