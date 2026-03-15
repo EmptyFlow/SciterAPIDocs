@@ -78,7 +78,7 @@ host.AddWindowEventHandler ( new MyWindowEventHandler ( host.MainWindow, host ) 
 
 // we inherit class from WindowEventHandler and override BehaviourEvent
 // and inside it we can as example handled event happened after document is fully loaded
-public class MyWindowEventHandler : WindowEventHandler {
+public class MyWindowEventHandler : SciterEventHandler {
 
     public MyWindowEventHandler ( nint window, SciterAPIHost host ) : base ( window, host ) {
     }
