@@ -102,3 +102,25 @@ var itemsAsDictionary = host.GetValueMapKey(ref map, index);
 var parameters = new List<SciterValue> (); // need to fill if required pass parameters
 var resultValue =  host.ValueInvoke(ref value, valueContext, parameters);
 ```
+## How to make JavaScript eval in window context?
+```csharp
+var script = "5 + 30"
+host.ExecuteWindowEval(window, script, out var result);
+var computedValue = host.GetValueInt32(result); // computedValue = 35
+```
+## How to call function in window context?
+```csharp
+var functionName = "myfunction";
+var parameters = new List<SciterValue>(); // if required fill parameters for function here
+host.ExecuteWindowFunction(window, functionName, parameters, out var result);
+// result of function will be in variable result
+```
+
+## Global predefined variables
+Can be helpful in cases where you need to return some code and return simple type values (like true/false/null).
+It can help to reduce count of allocations and calls of SciterAPI which can be improve performance in some cases.
+```csharp
+host.TrueValue - value of true
+host.FalseValue - value of false
+host.NullValue - value of null
+```
