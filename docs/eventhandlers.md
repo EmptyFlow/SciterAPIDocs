@@ -29,13 +29,7 @@ Occurs when a JavaScript xcall(...) call on a element or window.
 
 ### BehaviourEvent
 
-### SOMEvent
-
-### MethodCall
-
-Occurs when some of standart element methods called.
-
-### ExchangeParameters
+Occurs when some behaviour happened (like attribute changed etc)
 
 ### DataArrived
 
@@ -63,6 +57,8 @@ Occurs after scrolling.
 
 ### FocusEvent
 
+Occur after state of focus changed.
+
 ### KeyboardEvent
 
 Occurs after keyboard interactive on element.
@@ -82,7 +78,7 @@ host.AddWindowEventHandler ( new MyWindowEventHandler ( host.MainWindow, host ) 
 
 // we inherit class from WindowEventHandler and override BehaviourEvent
 // and inside it we can as example handled event happened after document is fully loaded
-public class MyWindowEventHandler : WindowEventHandler {
+public class MyWindowEventHandler : SciterEventHandler {
 
     public MyWindowEventHandler ( nint window, SciterAPIHost host ) : base ( window, host ) {
     }
@@ -144,4 +140,11 @@ after it you can get this event handler via:
 ```csharp
 var handlerPointer = Host.GetEventHandlerByUnique ( "myglobalname" );
 var handler = (handlerPointer as MyEventHandler);
+```
+
+## SetReturnState
+In some cases, we need to handle events (especially mouse/scroll/gesture events). Handling means not wanting the event to propagate to the parent element and beyond.
+A classic example: I want to handle a click on a button, but I don't want it to affect the area behind it. In this case, we need to call:
+```csharp
+Host.SetReturnState(true);
 ```
