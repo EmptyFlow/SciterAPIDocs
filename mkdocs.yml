@@ -12,3 +12,4 @@ nav:
   - Find element and change content: fileelement.md
   - Using Values: createvalue.md
   - JavaScript Interop: jsinterop.md
+  - PseudoSOM: pseudosom.md
